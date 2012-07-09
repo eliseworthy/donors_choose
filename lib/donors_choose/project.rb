@@ -11,4 +11,8 @@ class DonorsChoose::Project
   def self.by_zip(zipcode)
     DonorsChoose::Request.get(:zip => zipcode)
   end
+
+  def self.by_state(state)
+    DonorsChoose::Request.get(:state => state)
+  end
 end
