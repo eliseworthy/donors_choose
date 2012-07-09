@@ -22,4 +22,14 @@ describe DonorsChoose::Project do
     results = described_class.by_zip("15232")
     results.should eq(projects)
   end
+
+  it "is able to find projects by state" do
+    projects = [double]
+    DonorsChoose::Request.should_receive(:get).
+      with(:state => "WA").
+      and_return(projects)
+
+    results = described_class.by_state("WA")
+    results.should eq(projects)
+  end
 end
