@@ -12,7 +12,12 @@ class DonorsChoose::Project
     DonorsChoose::Request.get(:zip => zipcode)
   end
 
+  # This method allows you to look up all projects by a state code (ex: "WA").
   def self.by_state(state)
     DonorsChoose::Request.get(:state => state)
+  end
+
+  def self.by_subject(sub_prefix_code, sub_code)
+    DonorsChoose::Request.get(sub_prefix_code => sub_suffix_code)
   end
 end

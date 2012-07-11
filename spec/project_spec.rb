@@ -32,4 +32,14 @@ describe DonorsChoose::Project do
     results = described_class.by_state("WA")
     results.should eq(projects)
   end
+
+  it "is able to find projects by subject prefix code and subject code" do
+    projects = [double]
+    DonorsChoose::Request.should_receive(:get).
+      with("1" => "-1").
+      and_return(projects)
+
+    results = described_class.by_subject("1", "-1")
+    results.should eq(projects)
+  end
 end
