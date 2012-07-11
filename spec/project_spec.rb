@@ -52,4 +52,14 @@ describe DonorsChoose::Project do
     results = described_class.by_grade_type("1")
     results.should eq(projects)
   end
+
+  it "is able to find projects by state and subject" do
+    projects = [double]
+    DonorsChoose::Request.should_receive(:get).
+      with(:state => "WA", "subject1" => "-1").
+      and_return(projects)
+
+    results = described_class.by_state_and_subject("WA", "1", "-1")
+    results.should eq(projects)
+  end
 end

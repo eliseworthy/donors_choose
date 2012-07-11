@@ -22,8 +22,13 @@ class DonorsChoose::Project
     DonorsChoose::Request.get("subject#{sub_prefix_code}" => sub_code)
   end
 
-  # This method finds all project by grade level grouping.
+  # This method finds all projects by grade level grouping.
   def self.by_grade_type(grade_type_code)
     DonorsChoose::Request.get(:gradeType => grade_type_code)
+  end
+
+  # This method finds all projects by state and subject.
+  def self.by_state_and_subject(state, sub_prefix_code, sub_code)
+    DonorsChoose::Request.get(:state => state, "subject#{sub_prefix_code}" => sub_code)
   end
 end
