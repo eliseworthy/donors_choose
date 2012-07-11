@@ -21,6 +21,6 @@ describe DonorsChoose::Request do
 
     request = described_class.new({:state => "NC",
                                    :community => "1007:3"})
-    request.process.should_not be_nil
+    request.get.should_not be_nil
   end
 end
