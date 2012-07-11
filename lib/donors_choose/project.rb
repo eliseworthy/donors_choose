@@ -41,4 +41,9 @@ class DonorsChoose::Project
   def self.by_subject_and_grade_type(sub_prefix_code, sub_code, grade_type_code)
     DonorsChoose::Request.get("subject#{sub_prefix_code}" => sub_code, :gradeType => grade_type_code)
   end
+
+  #This method finds all projects by state, subject, and grade criteria.
+  def self.by_state_and_subject_and_grade_type(state, sub_prefix_code, sub_code, grade_type_code)
+    DonorsChoose::Request.get(:state => state, "subject#{sub_prefix_code}" => sub_code, :gradeType => grade_type_code)
+  end
 end
