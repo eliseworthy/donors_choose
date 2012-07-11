@@ -18,6 +18,6 @@ class DonorsChoose::Project
   end
 
   def self.by_subject(sub_prefix_code, sub_code)
-    DonorsChoose::Request.get(sub_prefix_code => sub_suffix_code)
+    DonorsChoose::Request.get("subject#{sub_prefix_code}" => sub_code)
   end
 end
