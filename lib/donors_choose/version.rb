@@ -1,4 +1,4 @@
 module DonorsChoose
   # The current version of the gem.
-  VERSION = "1.1.2"
+  VERSION = "1.1.3"
 end

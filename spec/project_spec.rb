@@ -42,4 +42,14 @@ describe DonorsChoose::Project do
     results = described_class.by_subject("1", "-1")
     results.should eq(projects)
   end
+
+  it "is able to find projects by grade type" do
+    projects = [double]
+    DonorsChoose::Request.should_receive(:get).
+      with(:gradeType => "1").
+      and_return(projects)
+
+    results = described_class.by_grade_type("1")
+    results.should eq(projects)
+  end
 end
