@@ -36,7 +36,7 @@ describe DonorsChoose::Project do
   it "is able to find projects by subject prefix code and subject code" do
     projects = [double]
     DonorsChoose::Request.should_receive(:get).
-      with("1" => "-1").
+      with("subject1" => "-1").
       and_return(projects)
 
     results = described_class.by_subject("1", "-1")
