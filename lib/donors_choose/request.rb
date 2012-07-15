@@ -13,7 +13,7 @@ class DonorsChoose::Request
   # This method is a convenient factory method, and is the easiest way
   # to make a single request and get the data back.
   def self.get(params)
-    new(params).process
+    new(params).get
   end
 
   # This API operates through making GET requests to an endpoint. It takes
@@ -35,7 +35,7 @@ class DonorsChoose::Request
   # list, construct our URI, and fetch it.
   def get
     base_uri = 'http://api.donorschoose.org/common/json_feed.html'
-    Net::HTTP.get(URI(base_uri + "?" + uri_params))
+    JSON.parse(Net::HTTP.get(URI(base_uri + "?" + uri_params)))
   end
 
   def uri_params
